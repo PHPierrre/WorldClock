@@ -1,5 +1,6 @@
 ﻿using Windows.UI.Xaml.Controls;
 using WorldClock.Models;
+using DataAccessLibrary;
 
 namespace WorldClock
 {
@@ -8,11 +9,10 @@ namespace WorldClock
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public Country TestCountry { get; set; }
 
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
     }
