@@ -5,7 +5,7 @@
         #region fields
         public string Timezone { get; set; }
 
-        public string Name { get; set; }
+        public string Area { get; set; }
 
         public string Time { get; set; }
 
@@ -13,15 +13,15 @@
         #endregion fields
 
         #region constructor
-        public Country(string name)
+        public Country(string Area, string Timezone)
         {
-            Name = name;
-
-            /*switch (name)
-            {
-                
-
-            }*/
+            this.Area = Area;
+            this.Timezone = Timezone;
+            
+            /*
+             * 1 - Calculer UTC
+             * 2 - Calculer time
+             */
         }
         #endregion constructor
     }

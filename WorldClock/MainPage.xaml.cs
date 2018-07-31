@@ -10,6 +10,8 @@ namespace WorldClock
     public sealed partial class MainPage : Page
     {
 
+        //public Country Timezone { get; set; }
+
         public MainPage()
         {
             InitializeComponent();

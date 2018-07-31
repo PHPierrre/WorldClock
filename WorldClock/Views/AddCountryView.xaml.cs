@@ -25,20 +25,42 @@ namespace WorldClock.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ComboBoxItem typeItem = (ComboBoxItem) City.SelectedItem;
-            string Timezone = typeItem.Name.ToString();
+            string Timezone = this.ReplaceDoubleUnderscore(typeItem.Name.ToString());
 
             string Name = Area.Text;
 
-            DataAccess.AddData(Timezone, Name);
+            DataAccess.AddData(Name, Timezone);
         }
 
         private void City_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Detecter quand l'user a rempli la timzone et remplir le champs
             ComboBoxItem typeItem = (ComboBoxItem) City.SelectedItem;
             string Item = typeItem.Name;
-            throw new NotImplementedException();
-            //string Timezone = Item.Replace("E", "a");
+            string Timezone = this.ReplaceDoubleUnderscore(Item);
+
+            Area.Text = this.NameOfTimezone(Timezone); 
+        }
+
+        private string NameOfTimezone(string timezone)
+        {
+            string Name;
+
+            switch(timezone)
+            {
+                case "Europe/Paris":
+                    Name = "Paris France";
+                    break;
+                default:
+                    Name = "Inconnu";
+                    break;
+            }
+
+            return Name;
+        }
+
+        private string ReplaceDoubleUnderscore(string value)
+        {
+            return value.Replace("__", @"/");
         }
     }
 }

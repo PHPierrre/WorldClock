@@ -13,9 +13,9 @@ namespace DataAccessLibrary
                 db.Open();
 
                 String tableCommand = "CREATE TABLE IF NOT " +
-                    "EXISTS Country (Primary_Key INTEGER PRIMARY KEY, " +
-                    "area NVARCHAR(100) NULL," +
-                    "timezone NVARCHAR(100) NULL)"; 
+                    "EXISTS Country (Id INTEGER PRIMARY KEY, " +
+                    "Area NVARCHAR(100) NULL," +
+                    "Timezone NVARCHAR(100) NULL)"; 
 
                 SqliteCommand createTable = new SqliteCommand(tableCommand, db);
 
@@ -44,27 +44,32 @@ namespace DataAccessLibrary
 
         }
 
-        public static List<String> GetData()
+        public static List<Object> GetData()
         {
-            List<String> entries = new List<string>();
+
+            List<Object> entries = new List<Object>();
 
             using (SqliteConnection db = new SqliteConnection("Filename=database.db"))
             {
                 db.Open();
 
-                SqliteCommand selectCommand = new SqliteCommand
-                    ("SELECT Primary_Key, area, timezone from Country", db);
+                SqliteCommand selectCommand = new SqliteCommand("SELECT Id, Area, Timezone from Country", db);
 
                 SqliteDataReader query = selectCommand.ExecuteReader();
 
                 while (query.Read())
                 {
-                    entries.Add(query.GetString(0));
+                    entries.Add(
+                        new Country()
+                        {
+                            Id = query.GetInt16(0),
+                            Area = query.GetString(1),
+                            Timezone = query.GetString(2)
+                        });
                 }
 
                 db.Close();
             }
-
             return entries;
         }
 

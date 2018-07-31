@@ -1,5 +1,8 @@
 ﻿using DataAccessLibrary;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using WorldClock.Models;
@@ -14,16 +17,16 @@ namespace WorldClock.Views
     /// </summary>
     public sealed partial class MainView : Page
     {
+        public Models.Country Timezone { get; set; }
+
         public MainView()
         {
             InitializeComponent();
 
-            /*CountryModel cm = new CountryModel();
-            ObservableCollection<Country> list = cm.GetCountries();
+            CountryModel cm = new CountryModel();
+            List<Object> list = cm.GetCountries();
 
-            listBox.DataContext = list;*/
-
-            listBox.DataContext = DataAccess.GetData();
+            listBox.DataContext = list;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

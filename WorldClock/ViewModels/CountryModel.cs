@@ -1,18 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using DataAccessLibrary;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using WorldClock.Models;
 
 namespace WorldClock.ViewModels
 {
     class CountryModel
     {
-        ObservableCollection<Country> listCountry = new ObservableCollection<Country>();
+        ObservableCollection<Models.Country> listCountry = new ObservableCollection<Models.Country>();
 
-        public ObservableCollection<Country> GetCountries()
+        public List<Object> GetCountries()
         {
-            listCountry.Add(new Country("France"));
-            listCountry.Add(new Country("Corée du sud"));
-            listCountry.Add(new Country("Etats Unis"));
+            var listCountry = DataAccess.GetData();
 
             return listCountry;
         }

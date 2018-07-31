@@ -16,33 +16,37 @@
         
         <TextBlock Text="Situation géographique" VerticalAlignment="Top" FontSize="25" HorizontalAlignment="Center" Margin="0,50,0,0" />
 
+        <!-- https://www.zeitverschiebung.net/fr/ -->
         <ComboBox Name="City" HorizontalAlignment="Center" Margin="0,96,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="City_SelectionChanged">
-            <ComboBoxItem Name="usa8">(UTC -8) Etats-Unis/Los Angeles/San Francisco</ComboBoxItem>
+            <ComboBoxItem Name="America__Los_Angeles">(UTC -8) Etats-Unis/Los Angeles/San Francisco</ComboBoxItem>
 
-            <ComboBoxItem Name="usa7">(UTC -7) Etats-Unis/Denver</ComboBoxItem>
+            <ComboBoxItem Name="America__Denver">(UTC -7) Etats-Unis/Denver</ComboBoxItem>
 
-            <ComboBoxItem Name="usa6">(UTC -6) Etats-Unis/Chicago/Dallas</ComboBoxItem>
+            <ComboBoxItem Name="America__Chicago">(UTC -6) Etats-Unis/Chicago/Dallas</ComboBoxItem>
 
-            <ComboBoxItem Name="usa5">(UTC -5) Etats-Unis/New York/Washington</ComboBoxItem>
-            <ComboBoxItem Name="quebec">(UTC -5) Québec/Québec</ComboBoxItem>
+            <ComboBoxItem Name="America__New_York">(UTC -5) Etats-Unis/New York/Washington</ComboBoxItem>
+            <ComboBoxItem Name="America__Toronto">(UTC -5) Québec/Québec/Monréal</ComboBoxItem>
 
-            <ComboBoxItem Name="brazil3">(UTC -3) Brésil/Brasilia/Rio de Janeiro/Sao Paulo</ComboBoxItem>
+            <ComboBoxItem Name="America__Sao_Paulo">(UTC -3) Brésil/Brasilia/Rio de Janeiro/Sao Paulo</ComboBoxItem>
 
-            <ComboBoxItem Name="england">(UTC +0) Royaume-Uni/Londres</ComboBoxItem>
+            <ComboBoxItem Name="Europe__London">(UTC +0) Royaume-Uni/Londres</ComboBoxItem>
             
-            <ComboBoxItem Name="germany">(UTC +1) Allemagne/Berlin</ComboBoxItem>
-            <ComboBoxItem Name="spain">(UTC +1) Espagne/Madrid</ComboBoxItem>
-            <ComboBoxItem Name="Europe_Paris">(UTC +1) France/Paris</ComboBoxItem>
-            <ComboBoxItem Name="italy">(UTC +1) Italie/Rome</ComboBoxItem>
-            <ComboBoxItem Name="poland">(UTC +1) Pologne/Varsovie</ComboBoxItem>
+            <ComboBoxItem Name="Europe__Berlin">(UTC +1) Allemagne/Berlin</ComboBoxItem>
+            <ComboBoxItem Name="Europe__Madrid">(UTC +1) Espagne/Madrid</ComboBoxItem>
+            <ComboBoxItem Name="Europe__Paris">(UTC +1) France/Paris</ComboBoxItem>
+            <ComboBoxItem Name="Europe__Rome">(UTC +1) Italie/Rome</ComboBoxItem>
+            <ComboBoxItem Name="Europe__Warsaw">(UTC +1) Pologne/Varsovie</ComboBoxItem>
 
-            <ComboBoxItem Name="russia3">(UTC +3) Russie/Moscou/St Pétersbourg</ComboBoxItem>
+            <ComboBoxItem Name="Europe__Moscow">(UTC +3) Russie/Moscou/St Pétersbourg</ComboBoxItem>
 
-            <ComboBoxItem Name="china">(UTC +8) Chine/Pékin</ComboBoxItem>
-            <ComboBoxItem Name="japan">(UTC +9) Japon/Tokyo</ComboBoxItem>
-            <ComboBoxItem Name="southkorea">(UTC +9) Corée du Sud/Séoul</ComboBoxItem>
+            <ComboBoxItem Name="Asia__Shanghai">(UTC +8) Chine/Pékin</ComboBoxItem>
+            <ComboBoxItem Name="Asia__Singapore">(UTC +8) Chine/Singapour</ComboBoxItem>
+            <ComboBoxItem Name="Asia__Taipei">(UTC +8) Twiwan/Taipei</ComboBoxItem>
+            
+            <ComboBoxItem Name="Asia__Tokyo">(UTC +9) Japon/Tokyo</ComboBoxItem>
+            <ComboBoxItem Name="Asia__Seoul">(UTC +9) Corée du Sud/Séoul</ComboBoxItem>
 
-            <ComboBoxItem Name="australia10">(UTC +10) Australie/Canberra/Sydney</ComboBoxItem>
+            <ComboBoxItem Name="Australia_Sydney">(UTC +10) Australie/Canberra/Sydney</ComboBoxItem>
         </ComboBox>
 
         <TextBox x:Name="Area" Text="" HorizontalAlignment="Center" Margin="0,142,0,0" VerticalAlignment="Top" Width="250" />

@@ -19,8 +19,8 @@
                 <DataTemplate>
                     <StackPanel>
                         <Grid HorizontalAlignment="Center" Height="80" Margin="0,0,0,0" VerticalAlignment="Top">
-                            <TextBlock HorizontalAlignment="Left" Margin="48,14,0,0" Text="{Binding Path=Name}" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30" />
-                            <TextBlock HorizontalAlignment="Left" Margin="300,0,0,0" Text="{Binding Path=Time}" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="60" Height="92" Width="149"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="48,14,0,0" Text="{Binding Path=Area}" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30" />
+                            <TextBlock HorizontalAlignment="Left" Margin="300,0,0,0" Text="{Binding Path=Timezone}" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="60" Height="92" Width="149"/>
                             <TextBlock HorizontalAlignment="Left" Margin="75,46,0,0" Text="{Binding Path=Utc}" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="10" Foreground="#FF636363" />
                         </Grid>
                     </StackPanel>
