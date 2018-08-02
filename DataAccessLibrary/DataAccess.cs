@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace DataAccessLibrary
 {
@@ -59,13 +60,7 @@ namespace DataAccessLibrary
 
                 while (query.Read())
                 {
-                    entries.Add(
-                        new Country()
-                        {
-                            Id = query.GetInt16(0),
-                            Area = query.GetString(1),
-                            Timezone = query.GetString(2)
-                        });
+                    entries.Add(new Country(query.GetInt16(0), query.GetString(1), query.GetString(2)));
                 }
 
                 db.Close();
@@ -73,5 +68,22 @@ namespace DataAccessLibrary
             return entries;
         }
 
+        public static void Delete(int id)
+        {
+            using (SqliteConnection db = new SqliteConnection("Filename=database.db"))
+            {
+                db.Open();
+
+                SqliteCommand insertCommand = new SqliteCommand();
+                insertCommand.Connection = db;
+
+                insertCommand.CommandText = "DELETE FROM Country WHERE Id = @EntryOne";
+                insertCommand.Parameters.AddWithValue("@EntryOne", id);
+
+                insertCommand.ExecuteReader();
+
+                db.Close();
+            }
+        }
     }
 }

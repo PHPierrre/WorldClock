@@ -14,7 +14,7 @@ namespace WorldClock.Views
     {
         public AddCountryView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -30,6 +30,7 @@ namespace WorldClock.Views
             string Name = Area.Text;
 
             DataAccess.AddData(Name, Timezone);
+            Frame.Navigate(typeof(MainView));
         }
 
         private void City_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -47,8 +48,44 @@ namespace WorldClock.Views
 
             switch(timezone)
             {
-                case "Europe/Paris":
-                    Name = "Paris France";
+                case "Pacific Standard Time":
+                    Name = "Los Angeles, Etats-Unis";
+                    break;
+                case "US_Mountain Standard Time":
+                    Name = "Denver, Etats-Unis";
+                    break;
+                case "Central America Standard Time":
+                    Name = "Chicago, Etats-Unis";
+                    break;
+                case "Eastern Standard Time":
+                    Name = "New York, Etats-Unis";
+                    break;
+                case "Central Brazilian Standard Time":
+                    Name = "Brasilia, Brésil";
+                    break;
+                case "GMT Standard Time":
+                    Name = "Londres, Royaume-Uni";
+                    break;
+                case "Central Europe Standard Time":
+                    Name = "Paris, France";
+                    break;
+                case "Russian Standard Time":
+                    Name = "Moscou, Russie";
+                    break;
+                case "China Standard Time":
+                    Name = "Pékin, Chine";
+                    break;
+                case "Taipei Standard Time":
+                    Name = "Taipei, Taiwan";
+                    break;
+                case "Tokyo Standard Time":
+                    Name = "Tokyo, Japon";
+                    break;
+                case "Korea Standard Time":
+                    Name = "Séoul, Corée du Sud";
+                    break;
+                case "AUS Central Standard Time":
+                    Name = "Sydney, Australie";
                     break;
                 default:
                     Name = "Inconnu";
@@ -60,7 +97,7 @@ namespace WorldClock.Views
 
         private string ReplaceDoubleUnderscore(string value)
         {
-            return value.Replace("__", @"/");
+            return value.Replace("_", @" ");
         }
     }
 }

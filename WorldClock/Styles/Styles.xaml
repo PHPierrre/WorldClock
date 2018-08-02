@@ -8,4 +8,8 @@
         <Setter Property="Foreground" Value="#ffffff" />
     </Style>
 
+    <Style TargetType="ListBoxItem">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    </Style>
+
 </ResourceDictionary>

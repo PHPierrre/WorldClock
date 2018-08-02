@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLibrary
 {
@@ -14,18 +11,55 @@ namespace DataAccessLibrary
 
         public string Area { get; set; }
 
+        public string Utc { get; set; }
+
         public Country(int Id, string Area, string Timezone)
         {
             this.Id = Id;
             this.Area = Area;
-            this.Timezone = Timezone;
+            this.Timezone = getTime(Timezone).ToString("H:mm");
+            this.Utc = UtcFormatting(getUtc(Timezone).Hours, getUtc(Timezone).Minutes);
         }
 
-        public Country()
+        public Country(int id)
         {
-            Id = 1;
-            this.Area = "Paris France";
-            this.Timezone = "Europe/Paris";
+            Id = id;
+        }
+
+        private TimeSpan getUtc(string Timezone)
+        {
+            var ToTimeZone = TimeZoneInfo.FindSystemTimeZoneById(Timezone);
+            var offset = ToTimeZone.GetUtcOffset(DateTime.Now);
+            return offset;
+        }
+
+        private DateTime getTime(string Timezone)
+        {
+            var ToTimeZone = TimeZoneInfo.FindSystemTimeZoneById(Timezone);
+            DateTime Final = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.Local, ToTimeZone);
+            return Final;
+        }
+
+        private string UtcFormatting(int Hours, int Minutes)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            if (Hours > 0)
+            {
+                stringBuilder.Append("UTC + ");
+                stringBuilder.Append(Hours);
+            }
+            else
+            {
+                stringBuilder.Append("UTC - ");
+                stringBuilder.Append(Math.Abs(Hours));
+            }
+
+            stringBuilder.Append(" : ");
+            if (Minutes == 0) stringBuilder.Append("00");
+
+            return stringBuilder.ToString();
+
         }
     }
 }

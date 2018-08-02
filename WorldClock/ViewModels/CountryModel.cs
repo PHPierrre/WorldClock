@@ -2,14 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using WorldClock.Models;
 
 namespace WorldClock.ViewModels
 {
     class CountryModel
     {
-        ObservableCollection<Models.Country> listCountry = new ObservableCollection<Models.Country>();
+        readonly ObservableCollection<Country> listCountry = new ObservableCollection<Country>();
 
         public List<Object> GetCountries()
         {
